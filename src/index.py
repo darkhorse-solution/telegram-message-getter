@@ -3,6 +3,7 @@ from telethon.sessions import StringSession
 import asyncio
 import os
 from datetime import datetime
+from telethon import connection
 
 # Config
 class Config:
@@ -24,8 +25,8 @@ async def get_latest_message():
         session,
         Config.API_ID,
         Config.API_HASH,
-        connection_retries=5,
-        use_ipv6=True,
+        connection_retries=10,
+        retry_delay=2,
         timeout=30
     )
 
